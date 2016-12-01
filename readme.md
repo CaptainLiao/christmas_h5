@@ -1,4 +1,26 @@
-### 一、腾讯面试机试题
+# 本仓库分为：圣诞节H5和腾讯面试机试题
+
+### 一、圣诞节H5技术概要
+
+#### 1. 包含文件：
+
+index.html、pageA.js、pageB.js、pageC.js、christmas.js
+
+#### 2. Promise 异步编程
+
+所谓`Promise`，简单说就是一个容器，里面保存这某个未来才会结束的事件（通常是一个异步操作的结果）。
+
+```
+function changePagePromise(ele, effectClass) {
+	// 这里必须返回一个Promise对象才能调用 .then()方法
+    return new Promise((resolve, reject) => {
+        ele.addClass(effectClass)
+            .one('animationend webkitAnimationEnd', resolve);
+    });
+}
+```
+
+### 二、腾讯面试机试题
 
 #### 1. 用原生js实现鼠标拖拽功能
 
@@ -31,7 +53,7 @@ function whichButton(e) {
 }
 ```
 
-### 二、Babel 将ES6转化为 ES5 
+### 三、Babel 将ES6转化为 ES5 
 
 #### 1. 安装插件
 

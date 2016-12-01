@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>圣诞主题</title>
+    <link rel='stylesheet' href='common.css' />
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <script src="../dist/christmas.js"></script>
+    <script src="../dist/pageC.js"></script>
+    <script src="../dist/pageB.js"></script>
+    <script src="../dist/pageA.js"></script>
+
+</head>
+
+<body>
+<section class="container">
+    <!-- 第一幅画面 -->
+    <section class="page-a bg-adaptive">
+    </section>
+    <!-- 第二幅画面 -->
+    <section class="page-b bg-adaptive">
+    </section>
+    <!-- 第三幅画面 -->
+    <section class="page-c bg-adaptive">
+    </section>
+</section>
+<!--选择页面：-->
+<!--<select id="choose">-->
+    <!--<option value="page-a" selected="">1</option>-->
+    <!--<option value="page-b">2</option>-->
+    <!--<option value="page-c">3</option>-->
+<!--</select>-->
+<button id="choose">点击运行场景切换</button>
+<script type="text/javascript">
+    /**
+     * 自适应页面大小
+     */
+    var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //自适应设置容器高度
+                var container = document.querySelector(".container")
+                //原始比例
+                var proportion = 900 / 1440;
+                container.style.height = container.clientWidth * proportion + "px";
+            };
+    window.addEventListener(resizeEvt, recalc, false);
+    document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</body>
+</html>

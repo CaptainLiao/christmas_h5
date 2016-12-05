@@ -35,6 +35,89 @@
   -webkit-animation-play-state: paused;
 }
 
+/* 窗户
+* 左右2片窗户需要慢慢的向内打开，门在变化的过程中是需要有个3d的视角变化的，门内需要有一个背景图
+* 在"开门式"中需要用到rotateY与scale，通过对rotateY角度的变化，从而产生开门的视角，这里需要引入一些3d属性设置
+*/
+.window {
+  width: 2.6rem;
+  height: 1.5rem;
+  position: absolute;
+  left: 9.7rem;
+  top: 6.2rem;
+  cursor: pointer;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  // 窗户底边
+  &:before {
+    content: '';
+    width: 100%;
+    height: 0.17rem;
+    background-color: #fcf9f3;
+    border-radius: 6px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.4);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: rotateX(30deg);
+    z-index: 100;
+  }
+}
+.window-content {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  width: 91%;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+// 窗户背景
+.window-bg {
+  width: 86%;
+  height: 92%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -43%;
+  background: url(http://img.mukewang.com/565d07770001790814410901.png);
+  background-size: 100%;
+  z-index: -1;
+}
+// 左侧门
+.window-left {
+  float: left;
+  background: #ffeeaa;
+  width: 50%;
+  height: 100%;
+  // 动画过程
+  &.hover {
+    transform: scale(0.95) rotate(60deg);
+    top: .1rem;
+    left: -.25rem;
+  }
+}
+// 右侧门
+.window-right {
+  float: right;
+  background: #ffeeaa;
+  width: 49%;
+  height: 100%;
+  box-sizing: border-box;
+
+  // 动画过程
+  &.hover {
+    transform: rotate(-60deg);
+    top: .1rem;
+    left: -.25rem;
+  }
+}
+.window-transition {
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+}
+
+
 
 /*圣诞树
 * animation: name duration timing-function delay iteration-count direction

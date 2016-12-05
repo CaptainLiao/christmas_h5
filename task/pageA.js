@@ -1,9 +1,16 @@
 function pageA(ele) {
     this.$root = ele;
-    this.boy = $('.chs-boy');
-    console.log(this.boy);
+    this.boy = ele.find('.chs-boy');
+    this.window = ele.find(".window");
+    this.winLeft = this.window.find(".window-left");
+    this.winRight = this.window.find(".window-right");
     this.run();
 }
+// 开窗
+pageA.prototype.openWindow = function(cb) {
+    this.winLeft.addClass("window-transition hover");
+    this.winRight.addClass("window-transition hover");
+};
 
 pageA.prototype.next = function (options) {
     var _this = this;
@@ -53,12 +60,15 @@ pageA.prototype.run = function() {
                 style: {
                     top: "8rem",
                     right: '1.2rem',
-                    "rotateY" : "rotateY(-180deg)"
+                    "transform" : "rotateY(180deg) scale(1.5)"
                 }
             })
         })
          .then(function() {
              _this.stopAnimation();
+         })
+         .then(function() {
+             _this.openWindow();
          })
 
 };

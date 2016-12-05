@@ -78,7 +78,10 @@ var Christmas = function() {
     //new pageA(changePagePromise($pageA, 'effect-out').then(function(){
     //    new pageB(changePagePromise($pageC, 'effect-in'))
     //}))
-    new pageA($pageA);
+    //new pageA($pageA);
+    new pageB($pageB, function(){
+        alert("done");
+    })
 
 };
 
@@ -95,6 +98,7 @@ $(function() {
     $(".endPlay").click(function () {
         Christmas();
     });
+
 })
 
 
